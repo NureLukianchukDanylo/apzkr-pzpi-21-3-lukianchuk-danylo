@@ -1,0 +1,35 @@
+<h2 class="mt-5" style="text-align: center;">{{'home' | translate}}</h2>
+<div style="display: flex; justify-content: center; align-items: center; height: 75vh;">
+  <div>
+    
+    <div *ngIf="!isUserAuthenticated()">
+      <h1 style="text-align: center;">
+        {{'main-text' | translate}}
+      </h1>
+      <div class="d-flex justify-content-center mt-3">
+        <div class="m-3">
+          <a [routerLink]="['/login']" class="btn btn-primary">{{'logIn' | translate}}</a>    
+        </div>
+        <div class="m-3">
+          <a [routerLink]="['/register']" class="btn btn-primary">{{'register' | translate}}</a>    
+        </div>
+      </div>
+    </div>
+    <div *ngIf="isUserAuthenticated()" style="color:blue;">
+      <h1 style="text-align: center;">
+        {{'loggedIn' | translate}}
+      </h1>
+      <div class="d-flex justify-content-center mt-3">
+        <div class="m-3">
+          <a [routerLink]="['/events']" class="btn btn-primary" i18n>{{'manage-events' | translate}}</a>    
+        </div>
+        <div class="m-3">
+          <a [routerLink]="['/venues']" class="btn btn-primary" i18n>{{'manage-venues' | translate}}</a>    
+        </div>
+      </div>
+      <div class="d-flex justify-content-center mt-3">
+        <a [routerLink]="['/resources']" class="btn btn-primary" i18n>{{'manage-resources' | translate}}</a>    
+      </div>
+    </div>
+  </div>
+</div>
